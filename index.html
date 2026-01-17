@@ -5,6 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Keeler K-9 Services</title>
   <style>
+    .nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 50;
+}
+
+.menu-btn {
+  background: var(--accent);
+  color: var(--primary);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  background: #121318;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.menu a {
+  display: block;
+  padding: 12px 18px;
+  color: var(--highlight);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.menu a:hover {
+  background: var(--support);
+}
+
     :root {
       --primary: #0E0F13;
       --accent: #E87C22;
@@ -187,6 +227,17 @@
 <header>
   <img src="kk9logo4.png" class="logo" alt="Keeler Kanine Logo">
 
+  <nav class="nav">
+  <button class="menu-btn" id="menuToggle">☰ Menu</button>
+
+  <div class="menu" id="menu">
+    <a href="about.html">About Us</a>
+    <a href="images.html">Images</a>
+    <a href="testimonies.html">Testimonies</a>
+    <a href="mission.html">Our Mission</a>
+  </div>
+</nav>
+
   <div class="inner">
     <h1>Keeler K-9 Services</h1>
     <p>Emergency housing and rehousing for dogs when owners can’t be there.</p>
@@ -321,6 +372,21 @@
 
     result.textContent = '✅ Request sent successfully. We will contact you shortly.';
     form.reset();
+  });
+</script>
+
+  <script>
+  const menuBtn = document.getElementById('menuToggle');
+  const menu = document.getElementById('menu');
+
+  menuBtn.addEventListener('click', () => {
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+      menu.style.display = 'none';
+    }
   });
 </script>
 
