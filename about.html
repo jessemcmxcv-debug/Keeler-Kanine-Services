@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Keeler Kanine Services</title>
+  <title>Keeler K-9 Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SAME STYLES EVERY PAGE -->
@@ -88,4 +88,44 @@
   </style>
 </head>
 <body>
+  <header>
+  <img src="kk9logo.png" class="logo">
+
+  <nav class="nav">
+    <button class="menu-btn" id="menuToggle">☰ Menu</button>
+    <div class="menu" id="menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="images.html">Images</a>
+      <a href="testimonies.html">Testimonies</a>
+      <a href="mission.html">Our Mission</a>
+    </div>
+  </nav>
+
+  <h1>Keeler K-9 Services</h1>
+</header>
+  <main>
+  <h2>About Us</h2>
+  <p>Your content here...</p>
+</main>
+<script>
+  const menuBtn = document.getElementById('menuToggle');
+  const menu = document.getElementById('menu');
+
+  menuBtn.addEventListener('click', () => {
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+      menu.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>
+
+</body>
+
+</html>
 
