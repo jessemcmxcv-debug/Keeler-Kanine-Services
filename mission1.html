@@ -1,90 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Keeler Kanine Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Our Mission | Keeler K-9 Services</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SAME STYLES EVERY PAGE -->
-  <style>
-    :root {
-      --primary: #0E0F13;
-      --accent: #E87C22;
-      --highlight: #EFE3C8;
-      --support: #C98B4B;
-    }
+<style>
+:root {
+  --primary: #0E0F13;
+  --accent: #E87C22;
+  --highlight: #EFE3C8;
+  --support: #C98B4B;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--primary);
-      color: var(--highlight);
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--primary);
+  color: var(--highlight);
+}
 
-    header {
-      background: linear-gradient(to bottom, #14151a, #0E0F13);
-      padding: 90px 20px 40px;
-      position: relative;
-      text-align: center;
-    }
+header {
+  background: linear-gradient(to bottom, #14151a, #0E0F13);
+  padding: 90px 20px 40px;
+  position: relative;
+  text-align: center;
+}
 
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      height: 60px;
-    }
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 300px;
+}
 
-    @media (max-width: 600px) {
-      .logo {
-        left: 50%;
-        transform: translateX(-50%);
-        height: 45px;
-      }
-    }
+@media (max-width: 600px) {
+  .logo {
+    left: 50%;
+    transform: translateX(-50%);
+    height: 45px;
+  }
+}
 
-    .nav {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 50;
-    }
+.nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
 
-    .menu-btn {
-      background: var(--accent);
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.menu-btn {
+  background: var(--accent);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .menu {
-      display: none;
-      position: absolute;
-      right: 0;
-      margin-top: 10px;
-      background: #121318;
-      border-radius: 10px;
-      overflow: hidden;
-    }
+.menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  background: #121318;
+  border-radius: 10px;
+  overflow: hidden;
+}
 
-    .menu a {
-      display: block;
-      padding: 12px 18px;
-      color: var(--highlight);
-      text-decoration: none;
-    }
+.menu a {
+  display: block;
+  padding: 12px 18px;
+  color: var(--highlight);
+  text-decoration: none;
+}
 
-    .menu a:hover {
-      background: var(--support);
-    }
+.menu a:hover {
+  background: var(--support);
+}
 
-    main {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-  </style>
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.center-text {
+  max-width: 750px;
+  margin: 30px auto;
+  text-align: center;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  background: rgba(255,255,255,0.02);
+  padding: 20px 26px;
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #aaa;
+}
+</style>
 </head>
+
 <body>
+
+<header>
+  <img src="kk9logo.png" class="logo">
+
+  <nav class="nav">
+    <button class="menu-btn" id="menuToggle">☰ Menu</button>
+    <div class="menu" id="menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="testimonies1.html">Testimonies</a>
+      <a href="mission1.html">Our Mission</a>
+    </div>
+  </nav>
+
+  <h1>Keeler K-9 Services</h1>
+  <p>Our Purpose & Promise</p>
+</header>
+
+<main>
+  <h2 class="section-title">Our Mission</h2>
+
+  <p class="center-text">
+    At Keeler K-9 Services, our mission is to protect the bond between people and
+    their dogs during life’s most unexpected moments. When an owner is suddenly
+    unable to provide care due to arrest, hospitalization, or emergency
+    situations, we step in to ensure every dog remains safe, supported, and
+    treated with dignity.
+  </p>
+
+  <p class="center-text">
+    We provide secure temporary housing, responsible rehousing, and compassionate
+    care through a trusted network of handlers, foster partners, and animal care
+    professionals. Every placement is guided by the dog’s health, temperament,
+    and emotional well-being.
+  </p>
+
+  <p class="center-text">
+    Our commitment goes beyond shelter. We believe every dog deserves stability,
+    structure, and respect regardless of circumstance. By offering transparency,
+    professionalism, and empathy, Keeler K-9 Services exists to bring peace of
+    mind to both owners and their companions when it matters most.
+  </p>
+</main>
+
+<footer>
+  © 2026 Keeler K-9 Services
+</footer>
+
+<script>
+const menuBtn = document.getElementById('menuToggle');
+const menu = document.getElementById('menu');
+
+menuBtn.onclick = () => {
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+};
+
+document.addEventListener('click', e => {
+  if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+    menu.style.display = 'none';
+  }
+});
+</script>
+
+</body>
+</html>
