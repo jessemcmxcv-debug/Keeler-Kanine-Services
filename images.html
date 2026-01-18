@@ -35,6 +35,29 @@
       height: 300px;
     }
 
+      .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+    
     @media (max-width: 600px) {
       .logo {
         left: 50%;
@@ -107,6 +130,14 @@
 <main>
   <h2>Images of Pups</h2>
   <p>Helped and Rescued Puppies</p>
+  <div class="gallery">
+    <img src="angel1.jpeg" alt="Photo 1">
+    <img src="angel2.jpeg" alt="Photo 2">
+    <img src="angel3.jpeg" alt="Photo 3">
+    <img src="angel1.jpeg" alt="Photo 4">
+    <img src="angel2.jpeg" alt="Photo 5">
+    <img src="angel3.jpeg" alt="Photo 6">
+</div>
 </main>
 <script>
   const menuBtn = document.getElementById('menuToggle');
