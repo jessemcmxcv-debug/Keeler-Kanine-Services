@@ -31,7 +31,7 @@ header {
   position: absolute;
   top: 20px;
   left: 20px;
-  height: 60px;
+  height: 300px;
 }
 
 @media (max-width: 600px) {
@@ -100,3 +100,108 @@ main {
 .card {
   background: rgba(255,255,255,0.03);
   padding: 22px;
+  border-radius: 14px;
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.card p {
+  line-height: 1.6;
+}
+
+.card span {
+  display: block;
+  margin-top: 12px;
+  color: var(--support);
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #aaa;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="kk9logo5.png" class="logo">
+
+  <nav class="nav">
+    <button class="menu-btn" id="menuToggle">☰ Menu</button>
+    <div class="menu" id="menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="testimonies1.html">Testimonies</a>
+      <a href="mission1.html">Our Mission</a>
+    </div>
+  </nav>
+
+  <h1>Keeler K-9 Services</h1>
+  <p>What Our Clients Say</p>
+</header>
+
+<main>
+  <h2 class="section-title">Client Testimonies</h2>
+
+  <div class="testimony-grid">
+
+    <div class="card">
+      <p>
+        “When everything fell apart, Keeler K-9 stepped in immediately. They treated
+        my dog like family and kept me informed every step of the way.”
+      </p>
+      <span>— Client A</span>
+    </div>
+
+    <div class="card">
+      <p>
+        “Professional, compassionate, and reliable. I was terrified about what would
+        happen to my dog, but they handled everything better than I imagined.”
+      </p>
+      <span>— Client B</span>
+    </div>
+
+    <div class="card">
+      <p>
+        “My dog has medical needs and special food. Keeler K-9 made sure nothing was
+        missed. I can’t thank them enough.”
+      </p>
+      <span>— Client C</span>
+    </div>
+
+    <div class="card">
+      <p>
+        “Fast response, honest communication, and real care. If you need someone to
+        protect your dog in an emergency, this is the service to call.”
+      </p>
+      <span>— Client D</span>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  © 2026 Keeler K-9 Services
+</footer>
+
+<script>
+const menuBtn = document.getElementById('menuToggle');
+const menu = document.getElementById('menu');
+
+menuBtn.onclick = () => {
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+};
+
+document.addEventListener('click', e => {
+  if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+    menu.style.display = 'none';
+  }
+});
+</script>
+
+</body>
+</html>
