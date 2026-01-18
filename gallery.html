@@ -214,6 +214,14 @@ document.addEventListener('click', e => {
 });
 
 function toggleDog(card) {
+  // Close all other galleries
+  document.querySelectorAll('.dog-gallery').forEach(g => {
+    if (!card.contains(g)) {
+      g.style.display = 'none';
+    }
+  });
+
+  // Toggle clicked one
   const gallery = card.querySelector('.dog-gallery');
   gallery.style.display = gallery.style.display === 'grid' ? 'none' : 'grid';
 }
