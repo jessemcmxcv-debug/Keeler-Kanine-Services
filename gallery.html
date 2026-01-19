@@ -363,7 +363,7 @@ footer {
 </div>
 
   
-<script>
+<!--  <script>
 document.addEventListener('DOMContentLoaded', () => {
 
   // ===== MENU =====
@@ -473,7 +473,100 @@ lightbox.onclick = e => {
   });
 
 });
+</script> --> 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ===== MENU =====
+  const menuBtn = document.getElementById('menuToggle');
+  const menu = document.getElementById('menu');
+
+  menuBtn.onclick = () => {
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  };
+
+  document.addEventListener('click', e => {
+    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+      menu.style.display = 'none';
+    }
+  });
+
+  // ===== DOG EXPAND =====
+  window.toggleDog = function(card) {
+    document.querySelectorAll('.dog-card').forEach(c => {
+      if (c !== card) c.classList.remove('active');
+    });
+    card.classList.toggle('active');
+  };
+
+  // ===== LIGHTBOX =====
+  let currentImages = [];
+  let currentIndex = 0;
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxNext = document.getElementById('lightbox-next');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+
+  // Only target gallery images for lightbox
+  document.querySelectorAll('.dog-gallery img').forEach(img => {
+    img.addEventListener('click', e => {
+      e.stopPropagation(); // prevent card toggle
+
+      const card = img.closest('.dog-card');
+
+      // Make sure this card is active
+      document.querySelectorAll('.dog-card').forEach(c => {
+        if (c !== card) c.classList.remove('active');
+      });
+      card.classList.add('active');
+
+      // Collect only this card's gallery images
+      currentImages = [...card.querySelectorAll('.dog-gallery img')].map(i => i.src);
+      currentIndex = currentImages.indexOf(img.src);
+
+      lightboxImg.src = currentImages[currentIndex];
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  function showImage() {
+    lightboxImg.src = currentImages[currentIndex];
+  }
+
+  lightboxNext.onclick = () => {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    showImage();
+  };
+
+  lightboxPrev.onclick = () => {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    showImage();
+  };
+
+  lightboxClose.onclick = () => {
+    lightbox.style.display = 'none';
+  };
+
+  lightbox.onclick = e => {
+    if (e.target === lightbox) lightbox.style.display = 'none';
+  };
+
+  // ===== SWIPE =====
+  let startX = 0;
+  lightbox.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  lightbox.addEventListener('touchend', e => {
+    let endX = e.changedTouches[0].clientX;
+    let diff = startX - endX;
+    if (diff > 50) lightboxNext.click();
+    if (diff < -50) lightboxPrev.click();
+  });
+
+});
 </script>
 
+  
 </body>
 </html>
