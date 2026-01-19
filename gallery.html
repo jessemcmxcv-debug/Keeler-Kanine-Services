@@ -386,74 +386,96 @@ document.addEventListener('DOMContentLoaded', () => {
     card.classList.toggle('active');
   };
   <script>
-let currentImages = [];
-let currentIndex = 0;
+document.addEventListener('DOMContentLoaded', () => {
 
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxClose = document.getElementById('lightbox-close');
-const lightboxNext = document.getElementById('lightbox-next');
-const lightboxPrev = document.getElementById('lightbox-prev');
+  // ===== MENU =====
+  const menuBtn = document.getElementById('menuToggle');
+  const menu = document.getElementById('menu');
 
-// Open from dog gallery
-document.querySelectorAll('.dog-card img').forEach(img => {
-  img.addEventListener('click', e => {
-    e.stopPropagation();
+  menuBtn.onclick = () => {
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  };
 
-    const card = img.closest('.dog-card');
-    const imgs = card.querySelectorAll('.dog-gallery img, > img');
-
-    currentImages = [...imgs].map(i => i.src);
-    currentIndex = currentImages.indexOf(img.src);
-    if (currentIndex < 0) currentIndex = 0;
-
-    showImage();
-    lightbox.style.display = 'flex';
+  document.addEventListener('click', e => {
+    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+      menu.style.display = 'none';
+    }
   });
-});
 
-function showImage() {
-  lightboxImg.src = currentImages[currentIndex];
-}
+  // ===== DOG EXPAND =====
+  window.toggleDog = function(card) {
+    document.querySelectorAll('.dog-card').forEach(c => {
+      if (c !== card) c.classList.remove('active');
+    });
+    card.classList.toggle('active');
+  };
 
-lightboxNext.onclick = () => {
-  currentIndex = (currentIndex + 1) % currentImages.length;
-  showImage();
-};
+  // ===== LIGHTBOX =====
+  let currentImages = [];
+  let currentIndex = 0;
 
-lightboxPrev.onclick = () => {
-  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-  showImage();
-};
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxNext = document.getElementById('lightbox-next');
+  const lightboxPrev = document.getElementById('lightbox-prev');
 
-lightboxClose.onclick = () => {
-  lightbox.style.display = 'none';
-};
+  document.querySelectorAll('.dog-card img').forEach(img => {
+    img.addEventListener('click', e => {
+      e.stopPropagation();
 
-lightbox.onclick = e => {
-  if (e.target === lightbox) lightbox.style.display = 'none';
-};
+      const card = img.closest('.dog-card');
+      const imgs = card.querySelectorAll('.dog-gallery img, > img');
 
+      currentImages = [...imgs].map(i => i.src);
+      currentIndex = currentImages.indexOf(img.src);
+      if (currentIndex < 0) currentIndex = 0;
 
+      showImage();
+      lightbox.style.display = 'flex';
+    });
+  });
 
-// ---- SWIPE SUPPORT ----
-let startX = 0;
+  function showImage() {
+    lightboxImg.src = currentImages[currentIndex];
+  }
 
-lightbox.addEventListener('touchstart', e => {
-  startX = e.touches[0].clientX;
-});
+  lightboxNext.onclick = () => {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    showImage();
+  };
 
-lightbox.addEventListener('touchend', e => {
-  let endX = e.changedTouches[0].clientX;
-  let diff = startX - endX;
+  lightboxPrev.onclick = () => {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    showImage();
+  };
 
-  if (diff > 50) lightboxNext.click();
-  if (diff < -50) lightboxPrev.click();
+  lightboxClose.onclick = () => {
+    lightbox.style.display = 'none';
+  };
+
+  lightbox.onclick = e => {
+    if (e.target === lightbox) lightbox.style.display = 'none';
+  };
+
+  // ===== SWIPE =====
+  let startX = 0;
+
+  lightbox.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+
+  lightbox.addEventListener('touchend', e => {
+    let endX = e.changedTouches[0].clientX;
+    let diff = startX - endX;
+
+    if (diff > 50) lightboxNext.click();
+    if (diff < -50) lightboxPrev.click();
+  });
+
 });
 </script>
 
-});
-</script>
 
 
 
