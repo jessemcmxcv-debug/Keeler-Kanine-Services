@@ -399,20 +399,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxPrev = document.getElementById('lightbox-prev');
 
   document.querySelectorAll('.dog-card img').forEach(img => {
-    img.addEventListener('click', e => {
-      e.stopPropagation();
+  img.addEventListener('click', e => {
+    e.stopPropagation();
+    toggleDog(card);
 
-      const card = img.closest('.dog-card');
-      const imgs = card.querySelectorAll('.dog-gallery img, > img');
+    const card = img.closest('.dog-card');
+    toggleDog(card);
 
-      currentImages = [...imgs].map(i => i.src);
-      currentIndex = currentImages.indexOf(img.src);
-      if (currentIndex < 0) currentIndex = 0;
+    const imgs = card.querySelectorAll('img');
+    currentImages = [...imgs].map(i => i.src);
+    currentIndex = currentImages.indexOf(img.src);
+    if (currentIndex < 0) currentIndex = 0;
 
-      showImage();
-      lightbox.style.display = 'flex';
-    });
+    showImage();
+    lightbox.style.display = 'flex';
   });
+});
+
 
   function showImage() {
     lightboxImg.src = currentImages[currentIndex];
